@@ -34,11 +34,13 @@
 
         body {
             min-height: 100vh;
+            min-height: 100dvh;
             font-family: 'Outfit', -apple-system, sans-serif;
             background: var(--bg-dark);
             color: var(--text-primary);
             overflow-x: hidden;
-            position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Animated gradient background */
@@ -91,11 +93,14 @@
         .page {
             position: relative;
             z-index: 1;
-            min-height: 100vh;
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2rem 1rem 6rem;
+            justify-content: center;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            min-height: 100dvh;
         }
 
         /* Header with names */
@@ -117,7 +122,7 @@
         }
 
         .names {
-            font-size: clamp(1.8rem, 6vw, 3rem);
+            font-size: clamp(1.8rem, 6vw, 3.5rem);
             font-weight: 700;
             letter-spacing: -0.02em;
             background: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-pink) 50%, var(--accent-purple) 100%);
@@ -138,7 +143,7 @@
         /* Countdown card */
         .countdown-wrapper {
             width: 100%;
-            max-width: 540px;
+            max-width: 560px;
             animation: fade-up 0.8s ease-out 0.2s both;
         }
 
@@ -158,8 +163,8 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2rem;
+            border-radius: 28px;
+            padding: 2.5rem 2rem;
             position: relative;
             overflow: hidden;
         }
@@ -183,11 +188,11 @@
 
         .destination {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .city-name {
-            font-size: clamp(2.5rem, 10vw, 4rem);
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
             font-weight: 800;
             letter-spacing: -0.03em;
             display: flex;
@@ -210,13 +215,13 @@
         .countdown-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
         }
 
         .time-block {
             text-align: center;
-            padding: 1rem 0.5rem;
+            padding: 1.25rem 0.5rem;
             background: rgba(255, 255, 255, 0.02);
             border-radius: 16px;
             border: 1px solid var(--border);
@@ -230,14 +235,14 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 2px;
+            height: 3px;
             background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple));
-            opacity: 0.5;
+            opacity: 0.6;
         }
 
         .time-number {
             font-family: 'JetBrains Mono', monospace;
-            font-size: clamp(2rem, 8vw, 3.5rem);
+            font-size: clamp(2.2rem, 9vw, 4rem);
             font-weight: 700;
             line-height: 1;
             background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.7) 100%);
@@ -247,11 +252,11 @@
         }
 
         .time-label {
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            margin-top: 0.5rem;
+            margin-top: 0.6rem;
         }
 
         /* Arrival badge */
@@ -260,10 +265,10 @@
             align-items: center;
             justify-content: center;
             gap: 0.6rem;
-            padding: 0.75rem 1.25rem;
+            padding: 0.85rem 1.5rem;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 100px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             width: fit-content;
             margin: 0 auto;
@@ -286,7 +291,7 @@
         /* Progress section */
         .progress-section {
             width: 100%;
-            max-width: 540px;
+            max-width: 560px;
             margin-top: 2rem;
             animation: fade-up 0.8s ease-out 0.4s both;
         }
@@ -315,8 +320,8 @@
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             background: white;
             border-radius: 50%;
             box-shadow: 0 0 20px var(--accent-pink);
@@ -331,7 +336,7 @@
             display: flex;
             justify-content: space-between;
             margin-top: 0.75rem;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
         }
 
@@ -340,282 +345,29 @@
             font-weight: 600;
         }
 
-        /* Journal section */
-        .journal-section {
-            width: 100%;
-            max-width: 540px;
+        /* Mood indicator */
+        .mood-section {
             margin-top: 2.5rem;
+            text-align: center;
             animation: fade-up 0.8s ease-out 0.6s both;
         }
 
-        .journal-input-wrapper {
+        .mood-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
             background: var(--bg-card);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .journal-input-wrapper:focus-within {
-            border-color: rgba(247, 37, 133, 0.5);
-            box-shadow: 0 0 30px rgba(247, 37, 133, 0.1);
-        }
-
-        .author-buttons {
-            display: flex;
-            gap: 0.4rem;
-            padding: 0 0.5rem;
-        }
-
-        .author-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            cursor: pointer;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: white;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .author-btn.sw {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-        }
-
-        .author-btn.su {
-            background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));
-        }
-
-        .author-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .author-btn.active {
-            border-color: white;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-        }
-
-        .journal-input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            outline: none;
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            padding: 0.75rem 0;
-        }
-
-        .journal-input::placeholder {
-            color: var(--text-secondary);
-        }
-
-        .submit-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: none;
-            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.2s ease;
-            flex-shrink: 0;
-        }
-
-        .submit-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px var(--glow);
-        }
-
-        /* Journal entries */
-        .journal-entries {
-            margin-top: 1.5rem;
-        }
-
-        .day-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            margin-bottom: 0.75rem;
-            overflow: hidden;
-            transition: all 0.2s ease;
-        }
-
-        .day-card:hover {
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .day-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.25rem;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .day-info {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .day-indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
-        }
-
-        .day-card:nth-child(2) .day-indicator {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-        }
-
-        .day-card:nth-child(3) .day-indicator {
-            background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));
-        }
-
-        .day-title {
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .day-meta {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .post-count {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.25rem 0.6rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 100px;
-        }
-
-        .chevron {
-            color: var(--text-secondary);
-            transition: transform 0.3s ease;
-            font-size: 0.8rem;
-        }
-
-        .chevron.open {
-            transform: rotate(180deg);
-        }
-
-        .day-posts {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .day-posts.open {
-            max-height: 500px;
-        }
-
-        .post-item {
-            padding: 1rem 1.25rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            gap: 0.875rem;
-        }
-
-        .post-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .post-avatar.sw {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-        }
-
-        .post-avatar.su {
-            background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));
-        }
-
-        .post-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .post-author {
-            font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .post-text {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.5;
-            font-size: 0.9rem;
-            word-wrap: break-word;
-        }
-
-        .post-time {
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            margin-top: 0.4rem;
-        }
-
-        .no-posts {
-            text-align: center;
-            padding: 2.5rem 1rem;
-            color: var(--text-secondary);
-        }
-
-        .no-posts-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.75rem;
-            opacity: 0.5;
-        }
-
-        /* Mood badge */
-        .mood-badge {
-            position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            background: var(--bg-card);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            padding: 0.65rem 1rem;
-            border-radius: 100px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.85rem;
-            color: var(--text-primary);
-            z-index: 100;
-            animation: fade-up 0.8s ease-out 1s both;
         }
 
         .mood-emoji {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
         }
 
         /* Arrived state */
@@ -624,12 +376,12 @@
             background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink), var(--accent-orange));
             background-size: 200% 200%;
             animation: gradient-move 4s ease infinite;
-            padding: 2.5rem 2rem;
-            border-radius: 24px;
+            padding: 3rem 2rem;
+            border-radius: 28px;
             color: white;
             text-align: center;
             width: 100%;
-            max-width: 540px;
+            max-width: 560px;
         }
 
         @keyframes gradient-move {
@@ -638,20 +390,31 @@
         }
 
         .arrived-banner h2 {
-            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
             margin-bottom: 0.5rem;
             font-weight: 700;
         }
 
         .arrived-banner p {
             opacity: 0.9;
-            font-size: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .confetti {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: bounce 1s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Mobile optimizations */
         @media (max-width: 480px) {
             .page {
-                padding: 1.5rem 1rem 5rem;
+                padding: 1.5rem 1rem;
             }
 
             .header {
@@ -659,100 +422,55 @@
             }
 
             .countdown-card {
-                padding: 1.5rem 1rem;
-                border-radius: 20px;
+                padding: 2rem 1.25rem;
+                border-radius: 24px;
+            }
+
+            .destination {
+                margin-bottom: 2rem;
             }
 
             .countdown-grid {
-                gap: 0.35rem;
+                gap: 0.5rem;
             }
 
             .time-block {
-                padding: 0.75rem 0.25rem;
+                padding: 1rem 0.25rem;
                 border-radius: 12px;
             }
 
             .time-label {
-                font-size: 0.55rem;
+                font-size: 0.6rem;
                 letter-spacing: 0.1em;
             }
 
             .arrival-badge {
-                font-size: 0.75rem;
-                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+                padding: 0.7rem 1.2rem;
             }
 
             .progress-section {
                 margin-top: 1.5rem;
             }
 
-            .journal-section {
+            .mood-section {
                 margin-top: 2rem;
             }
 
-            .journal-input-wrapper {
-                border-radius: 16px;
-                padding: 0.35rem;
-            }
-
-            .author-buttons {
-                padding: 0 0.25rem;
-            }
-
-            .author-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 0.6rem;
-            }
-
-            .journal-input {
+            .mood-pill {
+                padding: 0.6rem 1.25rem;
                 font-size: 0.9rem;
-                padding: 0.6rem 0;
-            }
-
-            .submit-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-
-            .day-header {
-                padding: 0.875rem 1rem;
-            }
-
-            .post-item {
-                padding: 0.875rem 1rem;
-            }
-
-            .mood-badge {
-                bottom: 1rem;
-                right: 1rem;
-                padding: 0.5rem 0.875rem;
-                font-size: 0.75rem;
-            }
-
-            .mood-emoji {
-                font-size: 1rem;
             }
         }
 
         /* Extra small devices */
         @media (max-width: 360px) {
             .time-number {
-                font-size: 1.75rem;
+                font-size: 1.8rem;
             }
 
             .city-name {
                 font-size: 2rem;
-            }
-
-            .author-buttons {
-                gap: 0.25rem;
-            }
-
-            .author-btn {
-                width: 28px;
-                height: 28px;
             }
         }
 
@@ -760,6 +478,7 @@
         @media (max-height: 500px) and (orientation: landscape) {
             .page {
                 padding: 1rem;
+                justify-content: flex-start;
             }
 
             .header {
@@ -767,7 +486,7 @@
             }
 
             .countdown-card {
-                padding: 1rem;
+                padding: 1.25rem;
             }
 
             .destination {
@@ -780,6 +499,19 @@
 
             .time-number {
                 font-size: 2rem;
+            }
+
+            .countdown-grid {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Safe area for notched phones */
+        @supports (padding: max(0px)) {
+            .page {
+                padding-left: max(1rem, env(safe-area-inset-left));
+                padding-right: max(1rem, env(safe-area-inset-right));
+                padding-bottom: max(2rem, env(safe-area-inset-bottom));
             }
         }
     </style>
@@ -797,7 +529,8 @@
 
         <!-- Arrived banner -->
         <div class="arrived-banner" id="arrived-banner">
-            <h2>🎉 Welcome to Bangalore!</h2>
+            <div class="confetti">🎉</div>
+            <h2>Welcome to Bangalore!</h2>
             <p>The adventure begins now!</p>
         </div>
 
@@ -839,7 +572,7 @@
         </div>
 
         <!-- Progress -->
-        <div class="progress-section">
+        <div class="progress-section" id="progress-section">
             <div class="progress-track">
                 <div class="progress-fill" id="progress" style="width: 0%"></div>
             </div>
@@ -849,37 +582,20 @@
             </div>
         </div>
 
-        <!-- Journal -->
-        <div class="journal-section">
-            <div class="journal-input-wrapper">
-                <div class="author-buttons">
-                    <button class="author-btn sw active" onclick="selectAuthor('Swastik')" title="Swastik">Sw</button>
-                    <button class="author-btn su" onclick="selectAuthor('Sushobhan')" title="Sushobhan">Su</button>
-                </div>
-                <input type="text" class="journal-input" id="post-input" placeholder="Share your excitement..." maxlength="200" onkeypress="handleKeyPress(event)">
-                <button class="submit-btn" onclick="addPost()" title="Post">→</button>
-            </div>
-
-            <div class="journal-entries" id="journal-entries">
-                <div class="no-posts">
-                    <div class="no-posts-icon">✨</div>
-                    <p>No posts yet. Start the travel journal!</p>
-                </div>
+        <!-- Mood -->
+        <div class="mood-section" id="mood-section">
+            <div class="mood-pill">
+                <span class="mood-emoji" id="mood-emoji">🤩</span>
+                <span id="mood-text">Getting excited!</span>
             </div>
         </div>
-    </div>
-
-    <!-- Mood badge -->
-    <div class="mood-badge" id="mood-badge">
-        <span class="mood-emoji" id="mood-emoji">🤩</span>
-        <span id="mood-text">Getting excited!</span>
     </div>
 
     <script>
         // Create floating particles
         function createParticles() {
             const container = document.getElementById('particles');
-            const particleCount = window.innerWidth < 480 ? 15 : 30;
+            const particleCount = window.innerWidth < 480 ? 12 : 25;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -898,8 +614,6 @@
         const targetDate = new Date('2025-12-19T12:30:00+05:30').getTime();
         const startDate = new Date('2025-12-14T00:00:00+05:30').getTime();
 
-        let selectedAuthor = 'Swastik';
-
         const moods = {
             5: { emoji: '📅', text: 'Countdown started!' },
             4: { emoji: '🎒', text: 'Time to pack!' },
@@ -909,22 +623,15 @@
             0: { emoji: '🛬', text: "They're here!" }
         };
 
-        function selectAuthor(name) {
-            selectedAuthor = name;
-            document.querySelectorAll('.author-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`.author-btn.${name === 'Swastik' ? 'sw' : 'su'}`).classList.add('active');
-            document.getElementById('post-input').placeholder = `${name}, share your excitement...`;
-        }
-
         function updateCountdown() {
             const now = Date.now();
             const distance = targetDate - now;
 
             if (distance < 0) {
                 document.getElementById('countdown-wrapper').style.display = 'none';
+                document.getElementById('progress-section').style.display = 'none';
+                document.getElementById('mood-section').style.display = 'none';
                 document.getElementById('arrived-banner').style.display = 'block';
-                document.getElementById('mood-emoji').textContent = '🎉';
-                document.getElementById('mood-text').textContent = "They've arrived!";
                 return;
             }
 
@@ -962,105 +669,9 @@
             }
         }
 
-        // Posts functionality
-        let posts = JSON.parse(localStorage.getItem('bangaloreJournal') || '[]');
-
-        function handleKeyPress(e) {
-            if (e.key === 'Enter') addPost();
-        }
-
-        function addPost() {
-            const input = document.getElementById('post-input');
-            const text = input.value.trim();
-            if (!text) return;
-
-            const now = new Date();
-            const post = {
-                id: Date.now(),
-                text: text,
-                author: selectedAuthor,
-                initials: selectedAuthor === 'Swastik' ? 'Sw' : 'Su',
-                date: now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }),
-                time: now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }),
-                dayKey: now.toISOString().split('T')[0]
-            };
-
-            posts.unshift(post);
-            localStorage.setItem('bangaloreJournal', JSON.stringify(posts));
-            input.value = '';
-            renderPosts();
-        }
-
-        function toggleDay(dayKey) {
-            const postsEl = document.getElementById(`posts-${dayKey}`);
-            const chevron = document.getElementById(`chevron-${dayKey}`);
-            postsEl.classList.toggle('open');
-            chevron.classList.toggle('open');
-        }
-
-        function renderPosts() {
-            const container = document.getElementById('journal-entries');
-            
-            if (posts.length === 0) {
-                container.innerHTML = `
-                    <div class="no-posts">
-                        <div class="no-posts-icon">✨</div>
-                        <p>No posts yet. Start the travel journal!</p>
-                    </div>
-                `;
-                return;
-            }
-
-            const grouped = {};
-            posts.forEach(p => {
-                if (!grouped[p.dayKey]) grouped[p.dayKey] = { date: p.date, posts: [] };
-                grouped[p.dayKey].posts.push(p);
-            });
-
-            const sortedDays = Object.keys(grouped).sort().reverse();
-
-            container.innerHTML = sortedDays.map((dayKey, i) => {
-                const day = grouped[dayKey];
-                const isOpen = i === 0 ? 'open' : '';
-                return `
-                    <div class="day-card">
-                        <div class="day-header" onclick="toggleDay('${dayKey}')">
-                            <div class="day-info">
-                                <div class="day-indicator"></div>
-                                <span class="day-title">${day.date}</span>
-                            </div>
-                            <div class="day-meta">
-                                <span class="post-count">${day.posts.length} post${day.posts.length > 1 ? 's' : ''}</span>
-                                <span class="chevron ${isOpen}" id="chevron-${dayKey}">▼</span>
-                            </div>
-                        </div>
-                        <div class="day-posts ${isOpen}" id="posts-${dayKey}">
-                            ${day.posts.map(p => `
-                                <div class="post-item">
-                                    <div class="post-avatar ${p.author === 'Swastik' ? 'sw' : 'su'}">${p.initials}</div>
-                                    <div class="post-content">
-                                        <div class="post-author">${p.author}</div>
-                                        <div class="post-text">${escapeHtml(p.text)}</div>
-                                        <div class="post-time">${p.time}</div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
         // Init
         updateCountdown();
         setInterval(updateCountdown, 1000);
-        renderPosts();
     </script>
 </body>
 </html>
